@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Task_2</title>
+</head>
+<body>
+<script type = "text/javascript">
+var input = [{
+      recordType: "person",
+      occupation: "author",
+      person: {
+                  name: "Айзек",
+                  lastName: "Азимов",
+				  birthday: ["2",
+                             "января",
+                             "1920"],
+				   book: {  title: "Двухсотлетний человек",
+							screenVersion: "Двухсотлетний человек",
+							data: ["17", 
+								   "декабря",
+								   "1999"]
+				   }
+                  
+                }
+    }];
+	
+	Object.prototype.clone = function() {
+  var newObj = (this instanceof Array) ? [] : {};
+  for (i in this) {
+    if (i == 'clone') continue;
+    if (this[i] && typeof this[i] == "object") {
+      newObj[i] = this[i].clone();
+    } else newObj[i] = this[i]
+  } return newObj;
+};
+
+var res = input[0].person.clone();
+console.log(res);
+</script>
+</body>
+</html>
